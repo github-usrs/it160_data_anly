@@ -1,3 +1,1 @@
-# Install matplotlib on your computer
-# pip install matplotlib
-import matplotlib
+'''Michael Jolley and Cole Walther - PA 4 - 3/26/2024'''
