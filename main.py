@@ -15,4 +15,4 @@ calculateStatistics(grades)
 plotStatistics(grades)
 
 # Plot math histogram
-plotMathHistogram(grades)
+plotMathHistogram()

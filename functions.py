@@ -42,7 +42,6 @@ def plotGrades(grades):
     plt.show()
 
 def calculateStatistics(grades):
-    print(grades[0].classAndGrade.keys())
     # Get the list of subjects
     subjects = list(grades[0].classAndGrade.keys())
     # Initialize a dictionary to store the statistics for each subject
@@ -52,17 +51,14 @@ def calculateStatistics(grades):
         subject_grades = [student.classAndGrade[subject] for student in grades]
         stats[subject].append(max(subject_grades))  # Maximum
         stats[subject].append(min(subject_grades))  # Minimum
-        stats[subject].append(sum(subject_grades) / numStudents)  # Average
+        stats[subject].append(sum(subject_grades) / len(grades))  # Average
         stats[subject].append(statistics.median(subject_grades))  # Median
         stats[subject].append(statistics.stdev(subject_grades))  # Standard deviation
-    # Print the statistics for each subject
-    for subject in subjects:
-        print(f'{subject}: Max={stats[subject][0]}, Min={stats[subject][1]}, Avg={stats[subject][2]}, Median={stats[subject][3]}, StdDev={stats[subject][4]}')
     return stats
 
 def plotStatistics(grades):
     # Calculate the statistics
-    stats = calculateStatistics(numStudents)
+    stats = calculateStatistics(grades)
 
     # Get the list of subjects
     subjects = list(stats.keys())
