@@ -22,9 +22,7 @@ def generate_grades(numStudents):
     students = [Student() for _ in range(numStudents)]
     return students
 
-def plotGrades():
-    # Generate grades for a random number of students
-    grades = generate_grades(numStudents)
+def plotGrades(grades):
     # Get the list of subjects
     subjects = list(grades[0].classAndGrade.keys())
     # Initialize a dictionary to store the total grades for each subject
@@ -43,9 +41,8 @@ def plotGrades():
     ax.set_title('Average Grade by Subject')
     plt.show()
 
-def calculateStatistics(numStudents):
-    # Generate grades for a random number of students
-    grades = generate_grades(numStudents)
+def calculateStatistics(grades):
+    print(grades[0].classAndGrade.keys())
     # Get the list of subjects
     subjects = list(grades[0].classAndGrade.keys())
     # Initialize a dictionary to store the statistics for each subject
@@ -61,8 +58,9 @@ def calculateStatistics(numStudents):
     # Print the statistics for each subject
     for subject in subjects:
         print(f'{subject}: Max={stats[subject][0]}, Min={stats[subject][1]}, Avg={stats[subject][2]}, Median={stats[subject][3]}, StdDev={stats[subject][4]}')
+    return stats
 
-def plotStatistics():
+def plotStatistics(grades):
     # Calculate the statistics
     stats = calculateStatistics(numStudents)
 

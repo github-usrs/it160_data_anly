@@ -9,10 +9,10 @@ grades = generate_grades(numStudents)
 plotGrades(grades)
 
 # Calculate statistics
-statistics = calculateStatistics(grades)
+calculateStatistics(grades)
 
 # Plot statistics
-plotStatistics(statistics)
+plotStatistics(grades)
 
 # Plot math histogram
 plotMathHistogram(grades)
