@@ -18,8 +18,30 @@ class Student:
 
 numStudents = random.randint(15, 25)
 
+# version 1 of generate_grades - generates random grades for a random number of students
+'''
 def generate_grades(numStudents):
     students = [Student() for _ in range(numStudents)]
+    return students
+'''
+
+# version 2 of generate_grades - generates grades from a file
+def generate_grades(filename):
+    students = []
+    with open(filename, 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+            grades = list(map(int, line.split(',')))
+            student = Student()
+            student.classAndGrade = {
+                'Math': grades[0],
+                'Physics': grades[1],
+                'Recreation': grades[2],
+                'History': grades[3],
+                'English': grades[4],
+                'Chemistry': grades[5]
+            }
+            students.append(student)
     return students
 
 def plotGrades(grades):
